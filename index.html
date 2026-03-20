@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nelson Armero | Multimedia OS</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="desktop">
+
+    <!-- ICONOS -->
+    <div class="icon" style="top:20px; left:20px;" ondblclick="openWindow('perfil')">
+        <img src="assets/Icons/WINSE001.ICO">
+        <span>Perfil</span>
+    </div>
+
+    <div class="icon" style="top:100px; left:40px;" ondblclick="openWindow('explorer')">
+        <img src="assets/Icons/MSMAI010.ICO">
+        <span>Proyectos</span>
+    </div>
+
+    <div class="icon" style="top:180px; left:30px;" ondblclick="openVideo('dQw4w9WgXcQ')">
+        <img src="assets/Icons/PROGM014.ICO">
+        <span>Media</span>
+    </div>
+
+    <div class="icon" style="top:60px; left:150px;" ondblclick="openImage('assets/img/proyecto1.jpg')">
+        <img src="assets/Icons/PROGM013.ICO">
+        <span>Foto</span>
+    </div>
+
+    <div class="icon" style="top:200px; left:200px;" ondblclick="openProject('https://www.instagram.com/noleyart_/')">
+        <img src="assets/Icons/PROGM018.ICO">
+        <span>Arte</span>
+    </div>
+
+</div>
+
+<!-- PERFIL -->
+<div id="perfil" class="window">
+    <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+        <span>PERFIL.EXE</span>
+        <button onclick="closeWindow('perfil')">X</button>
+    </div>
+
+    <div class="window-body profile-grid">
+        <div class="profile-card">
+            <h4>🧾 Datos</h4>
+            <p>Nelson Ferney Armero Peña </p>
+            <p>Productor Multimedia</p>
+            <p>19 años</p>
+            <li>Masculino</li>
+        </div>
+
+        <div class="profile-card">
+            <h4>🧠 Perfil</h4>
+            <p>Comprometido y dispuesto siempre a dar lo mejor de mi para lograr rewsultados pulidos de alta calidad, no me gusta conformarme con un trabajo a medias, doy lo mejor de mi en cada proyecto sin importar de que se trate</p>
+        </div>
+        <div class="profile-card">
+            <h4>✏️ Educación </h4>
+            <p>Tecnico Profesional en servicios de seguridad informatica(2026) (Universidad Minuto de Dios)</p>
+            <p>Tecnico en Producción de Multimedia (En curso) (Servicio Nacional de Aprendizaje)</p>
+            <p>Media Secundaria (2023) (Colegio San Pedro Claver)</p>
+        </div>
+            
+
+        <div class="profile-card">
+            <h4>🛠️ Técnicas</h4>
+            <ul>
+                <li>Edición de video</li>
+                <li>After Effects</li>
+                <li>Diseño gráfico</li>
+                <li>Adobe Premiere</li>
+                <li>Photoshop</li>
+                <li>LightRoom</li>
+                <li>Fullstack</li>
+                <li>Ilustración</li>
+            </ul>
+        </div>
+
+        <div class="profile-card">
+            <h4>🎯 Especialización</h4>
+            <ul>
+                <li>Fotografía</li>
+                <li>Diseño</li>
+                <li>Grabación de vídeo</li>
+            </ul>
+        </div>
+
+        <div class="profile-card">
+            <h4>🧠 Blandas</h4>
+            <ul>
+                <li>Creatividad</li>
+                <li>Autodidacta</li>
+                <li>Resolución de problemas</li>
+            </ul>
+        </div>
+
+        <div class="profile-card">
+            <h4>📞 Contacto</h4>
+            <p>armeronelson3@gmail.com</p>
+            <p>+573212079032</p>
+        </div>
+    </div>
+</div>
+
+<!-- EXPLORADOR (DINÁMICO) -->
+<div id="explorer" class="window">
+    <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+        <span>EXPLORADOR.EXE</span>
+        <button onclick="closeWindow('explorer')">X</button>
+    </div>
+
+    <div class="window-body">
+
+        <div class="explorer-nav">
+            <button onclick="goBack()">⬅ Atrás</button>
+            <span id="path"></span>
+        </div>
+
+        <div id="explorer-content"></div>
+
+    </div>
+</div>
+
+<!-- VISOR -->
+<div id="viewer" class="window">
+    <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+        <span>VISOR.EXE</span>
+        <button onclick="closeWindow('viewer')">X</button>
+    </div>
+    <div class="window-body" id="viewer-content"></div>
+</div>
+
+<!-- PLAYER -->
+<<div id="player" class="window">
+    <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+        <span>MEDIA_PLAYER.EXE</span>
+        <button onclick="closeWindow('player')">X</button>
+    </div>
+
+    <div class="window-body player-body">
+
+        <iframe 
+            id="video-frame"
+            src=""
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+
+        <div class="player-controls">
+            <button onclick="prevVideo()">⏪</button>
+            <button onclick="nextVideo()">⏩</button>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<!-- TASKBAR -->
+<div class="taskbar">
+    <button class="start-btn" onclick="toggleStart()">🟢 Inicio</button>
+
+    <div class="task-icons" id="task-icons"></div>
+
+    <div class="system-tray">
+        <span id="date"></span>
+        <span id="clock"></span>
+    </div>
+</div>
+
+<!-- MENÚ INICIO -->
+<div id="start-menu" class="start-menu">
+    <div onclick="openWindow('perfil')">📄 Perfil</div>
+    <div onclick="openWindow('explorer')">📂 Explorador</div>
+    <div onclick="openWindow('player')">🎬 Media Player</div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

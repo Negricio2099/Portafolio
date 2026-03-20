@@ -1,0 +1,299 @@
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* BODY */
+body {
+    background: radial-gradient(circle at top, #2a0000, #0a0000);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    color: white;
+}
+
+/* ESCRITORIO */
+.desktop {
+    width: 100vw;
+    height: 100vh;
+    background: url('assets/img/wallpaper.jpg') center/cover;
+    position: relative;
+}
+
+
+/* ICONOS */
+.icon {
+    position: absolute;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.icon:hover img {
+    transform: scale(1.15);
+}
+
+.icon img {
+    width: 64px;
+    height: 64px;
+    image-rendering: pixelated;
+    transition: transform 0.2s;
+}
+
+.icon span {
+    font-size: 12px;
+}
+
+/* VENTANAS */
+.window {
+    width: 360px;
+    background: #c0c0c0;
+    border: 2px solid black;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    display: none;
+    z-index: 10;
+    box-shadow: 4px 4px 0px #000;
+}
+
+/* BARRA SUPERIOR */
+.title-bar {
+    background: linear-gradient(to right, #000080, #0000aa);
+    color: white;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    cursor: move;
+    font-size: 13px;
+}
+
+/* BOTÓN X */
+.title-bar button {
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0 6px;
+}
+
+/* CUERPO */
+.window-body {
+    padding: 10px;
+    max-height: 320px;
+    overflow-y: auto;
+    background: #c0c0c0;
+    color: black;
+}
+
+/* SCROLLBAR RETRO */
+.window-body::-webkit-scrollbar {
+    width: 8px;
+}
+.window-body::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* ARCHIVOS */
+.file {
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.file:hover {
+    background: #000080;
+    color: white;
+    border: 1px solid white;
+}
+
+/* VISOR */
+#viewer img {
+    width: 100%;
+}
+
+/* PLAYER */
+#player iframe {
+    width: 100%;
+    height: 220px;
+    border: none;
+}
+
+/* TASKBAR */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #c0c0c0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    border-top: 2px solid #fff;
+    z-index: 9999;
+}
+
+/* BOTÓN INICIO */
+.start-btn {
+    background: #c0c0c0;
+    border: 2px outset #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.start-btn:active {
+    border: 2px inset #808080;
+}
+
+/* ICONOS DE VENTANAS */
+.task-icons {
+    display: flex;
+    gap: 5px;
+    flex-grow: 1;
+    margin-left: 10px;
+    overflow-x: auto;
+}
+
+/* ITEM ACTIVO */
+.task-item {
+    background: #e0e0e0;
+    border: 2px inset #808080;
+    padding: 3px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* RELOJ */
+.system-tray {
+    text-align: right;
+    font-size: 12px;
+    min-width: 110px;
+}
+
+/* MENÚ INICIO */
+.start-menu {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    background: #c0c0c0;
+    border: 2px outset #fff;
+    display: none;
+    padding: 10px;
+    z-index: 9999;
+}
+
+.start-menu div {
+    padding: 6px;
+    cursor: pointer;
+}
+
+.start-menu div:hover {
+    background: #000080;
+    color: white;
+}
+
+/* PERFIL */
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.profile-card {
+    background: #e0e0e0;
+    border: 2px inset #808080;
+    padding: 8px;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.profile-card:hover {
+    transform: scale(1.03);
+}
+
+.profile-card h4 {
+    margin-bottom: 5px;
+    font-size: 13px;
+    border-bottom: 1px solid #999;
+}
+
+.profile-card ul {
+    padding-left: 15px;
+}
+
+/* EXPLORADOR */
+.explorer-nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.explorer-nav button {
+    background: #c0c0c0;
+    border: 2px outset #fff;
+    cursor: pointer;
+    padding: 3px 8px;
+}
+
+.explorer-nav button:active {
+    border: 2px inset #808080;
+}
+
+#explorer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* EFECTO VENTANA ACTIVA */
+.window.active {
+    z-index: 1000;
+}
+
+/* ANIMACIÓN SUAVE */
+.window {
+    animation: openWindow 0.2s ease;
+}
+
+@keyframes openWindow {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+#player {
+    width: 70vw;
+    height: 70vh;
+}
+
+.player-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#video-frame {
+    width: 100%;
+    height: 100%;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.player-controls button {
+    font-size: 18px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
